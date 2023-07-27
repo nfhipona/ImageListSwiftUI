@@ -9,4 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 PRODUCT_NAME = Display Image (Release)
-BASE_URL = https://api.pexels.com/v1
+API_TOKEN = TOKEN_HERE
+BASE_URL = https:/$()/api.pexels.com/v1
