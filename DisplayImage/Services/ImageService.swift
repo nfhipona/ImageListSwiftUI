@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum ImageService: APIProtocol {
     case getImages(perPage: Int)
@@ -58,5 +59,9 @@ class ImageServiceAPI {
     
     func getImages(req: ImageService) async throws -> ImageContent {
         return try await service.request(path: req.path, method: req.method, headers: req.headers, body: req.body, queryItems: req.queryItems)
+    }
+    
+    func combineGetImages(req: ImageService) -> AnyPublisher<ImageContent, Error> {
+        service.combineRequest(path: req.path, method: req.method, headers: req.headers, body: req.body, queryItems: req.queryItems)
     }
 }

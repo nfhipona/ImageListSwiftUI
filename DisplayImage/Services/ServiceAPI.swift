@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol APIProtocol {
     var method: ServiceAPI.Method { get }
@@ -68,5 +69,32 @@ class ServiceAPI {
         } catch {
             throw APIError.unableToComplete
         }
+    }
+    
+    func combineRequest<T: Decodable>(path: String, method: Method = .get, headers: [Header]? = nil, body: Data? = nil, queryItems: [URLQueryItem]? = nil) -> AnyPublisher<T, Error> {
+        
+        guard var url = URL(string: baseURL.appending(path))
+        else {
+            return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
+        }
+        
+        if let queryItems {
+            url.append(queryItems: queryItems)
+        }
+        
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 120)
+        request.httpMethod = method.rawValue
+        request.httpBody = body
+        
+        if let headers {
+            for header in headers {
+                request.setValue(header.value, forHTTPHeaderField: header.name)
+            }
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: T.self, decoder: decoder)
+            .eraseToAnyPublisher()
     }
 }

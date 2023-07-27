@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import Combine
 
 class ImageViewModel: ObservableObject {
     private unowned let coordinator: ImageViewCoordinator
     private let imageAPI: ImageServiceAPI
+    private var store = Set<AnyCancellable>()
     
     init(coordinator: ImageViewCoordinator) {
         self.coordinator = coordinator
         self.imageAPI = ImageServiceAPI(service: ServiceAPI(baseURL: Secret.baseURL))
         
-        self.getLists()
+        // self.getLists()
+        self.getListsCombine()
     }
     
     func getLists() {
@@ -27,5 +30,19 @@ class ImageViewModel: ObservableObject {
                 print("error", error)
             }
         }
+    }
+    
+    func getListsCombine() {
+        imageAPI.combineGetImages(req: .getImages(perPage: 10))
+            .map(\.photos)
+            .sink(receiveCompletion: { error in
+                print("error", error)
+            }, receiveValue: { [weak self] images in
+                guard let self else { return }
+                Task {
+                    await self.coordinator.setImageList(imageList: images)
+                }
+            })
+            .store(in: &store)
     }
 }
