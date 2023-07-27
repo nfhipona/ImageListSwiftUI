@@ -8,6 +8,8 @@ Create an app that will display a list of photo. Use any public Photo API availa
 User can tap on each photo to see more details of the data retrieved from the API.
 
 # Usage
+
+This is using [Pexels API](https://www.pexels.com/api/).
 Change `API_TOKEN`'s value of your own in `.xcconfig` file.
 
 # Screenshots
