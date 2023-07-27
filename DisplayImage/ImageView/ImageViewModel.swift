@@ -18,7 +18,7 @@ class ImageViewModel: ObservableObject {
         self.imageAPI = ImageServiceAPI(service: ServiceAPI(baseURL: Secret.baseURL))
         
         // self.getLists()
-        self.getListsCombine()
+        self.getListsUsingCombine()
     }
     
     func getLists() {
@@ -32,7 +32,7 @@ class ImageViewModel: ObservableObject {
         }
     }
     
-    func getListsCombine() {
+    func getListsUsingCombine() {
         imageAPI.combineGetImages(req: .getImages(perPage: 10))
             .map(\.photos)
             .sink(receiveCompletion: { error in

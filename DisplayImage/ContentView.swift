@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var coordinator: ContentViewCoordinator
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        ImageView(coordinator: coordinator.imageViewCoordinator)
+            .fullScreenCover(item: $coordinator.imageData, onDismiss: {
+                coordinator.imageData = nil
+            }, content: { item in
+                ImageDetailView(coordinator: .init(imageData: item))
+                    .navigationTitle("Image Detail")
+            })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(coordinator: .init())
     }
 }

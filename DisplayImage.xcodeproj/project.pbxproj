@@ -23,6 +23,10 @@
 		082D2E972A7250CA00232466 /* image_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 082D2E962A7250CA00232466 /* image_list.json */; };
 		082D2E992A72516600232466 /* MockImageURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D2E982A72516600232466 /* MockImageURLProtocol.swift */; };
 		082D2E9B2A72531100232466 /* ServiceLocalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D2E9A2A72531100232466 /* ServiceLocalAPI.swift */; };
+		0838F74B2A727CD900D17595 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838F74A2A727CD900D17595 /* ImageDetailView.swift */; };
+		0838F74E2A727D0900D17595 /* ImageDetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838F74D2A727D0900D17595 /* ImageDetailViewCoordinator.swift */; };
+		0838F7502A727D3200D17595 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838F74F2A727D3200D17595 /* ImageDetailViewModel.swift */; };
+		0838F7522A7280FB00D17595 /* ContentViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838F7512A7280FB00D17595 /* ContentViewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,10 @@
 		082D2E962A7250CA00232466 /* image_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = image_list.json; sourceTree = "<group>"; };
 		082D2E982A72516600232466 /* MockImageURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageURLProtocol.swift; sourceTree = "<group>"; };
 		082D2E9A2A72531100232466 /* ServiceLocalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocalAPI.swift; sourceTree = "<group>"; };
+		0838F74A2A727CD900D17595 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		0838F74D2A727D0900D17595 /* ImageDetailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewCoordinator.swift; sourceTree = "<group>"; };
+		0838F74F2A727D3200D17595 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
+		0838F7512A7280FB00D17595 /* ContentViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +92,9 @@
 				082D2E882A723BC800232466 /* Data */,
 				082D2E702A722D8300232466 /* DisplayImageApp.swift */,
 				082D2E722A722D8300232466 /* ContentView.swift */,
+				0838F7512A7280FB00D17595 /* ContentViewCoordinator.swift */,
 				082D2E912A72467D00232466 /* ImageView */,
+				0838F74C2A727CE000D17595 /* ImageDetailView */,
 				082D2E742A722D8400232466 /* Assets.xcassets */,
 				082D2E762A722D8400232466 /* DisplayImage.entitlements */,
 				082D2E772A722D8400232466 /* Preview Content */,
@@ -145,6 +155,16 @@
 				082D2E962A7250CA00232466 /* image_list.json */,
 			);
 			path = MockService;
+			sourceTree = "<group>";
+		};
+		0838F74C2A727CE000D17595 /* ImageDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				0838F74A2A727CD900D17595 /* ImageDetailView.swift */,
+				0838F74D2A727D0900D17595 /* ImageDetailViewCoordinator.swift */,
+				0838F74F2A727D3200D17595 /* ImageDetailViewModel.swift */,
+			);
+			path = ImageDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,13 +241,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				082D2E732A722D8300232466 /* ContentView.swift in Sources */,
+				0838F7502A727D3200D17595 /* ImageDetailViewModel.swift in Sources */,
 				082D2E8E2A72455F00232466 /* Secrets.swift in Sources */,
 				082D2E862A72350B00232466 /* ServiceAPI.swift in Sources */,
 				082D2E952A72489600232466 /* ImageViewModel.swift in Sources */,
 				082D2E712A722D8300232466 /* DisplayImageApp.swift in Sources */,
+				0838F74B2A727CD900D17595 /* ImageDetailView.swift in Sources */,
 				082D2E8C2A723ECE00232466 /* ImageService.swift in Sources */,
 				082D2E902A72467600232466 /* ImageView.swift in Sources */,
+				0838F74E2A727D0900D17595 /* ImageDetailViewCoordinator.swift in Sources */,
 				082D2E992A72516600232466 /* MockImageURLProtocol.swift in Sources */,
+				0838F7522A7280FB00D17595 /* ContentViewCoordinator.swift in Sources */,
 				082D2E8A2A723BDA00232466 /* ImageData.swift in Sources */,
 				082D2E9B2A72531100232466 /* ServiceLocalAPI.swift in Sources */,
 				082D2E932A72484D00232466 /* ImageViewCoordinator.swift in Sources */,
@@ -371,7 +395,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -411,7 +435,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;

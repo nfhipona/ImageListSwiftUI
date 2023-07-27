@@ -29,7 +29,7 @@ extension ImageData {
     }
 }
 
-struct ImageData: Decodable {
+struct ImageData: Decodable, Identifiable {
     let id: Int
     let width: Int
     let height: Int

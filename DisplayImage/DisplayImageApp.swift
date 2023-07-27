@@ -11,7 +11,7 @@ import SwiftUI
 struct DisplayImageApp: App {
     var body: some Scene {
         WindowGroup {
-            ImageView(coordinator: .init())
+            ContentView(coordinator: .init())
         }
     }
 }

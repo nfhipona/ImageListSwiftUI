@@ -17,14 +17,12 @@ class ServiceLocalAPI: ServiceAPI {
     }()
     
     override func request<T: Decodable>(path: String, method: Method = .get, headers: [Header]? = nil, body: Data? = nil, queryItems: [URLQueryItem]? = nil) async throws -> T {
-        guard var url = URL(string: baseURL.appending(path))
+        guard var components = URLComponents(string: baseURL.appending(path))
         else {
             throw APIError.invalidURL
         }
-        
-        if let queryItems {
-            url.append(queryItems: queryItems)
-        }
+        components.queryItems = queryItems
+        guard let url = components.url else { throw APIError.invalidURL }
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 120)
         request.httpMethod = method.rawValue
@@ -45,14 +43,14 @@ class ServiceLocalAPI: ServiceAPI {
     }
     
     override func combineRequest<T: Decodable>(path: String, method: Method = .get, headers: [Header]? = nil, body: Data? = nil, queryItems: [URLQueryItem]? = nil) -> AnyPublisher<T, Error> {
-        
-        guard var url = URL(string: baseURL.appending(path))
+        guard var components = URLComponents(string: baseURL.appending(path))
         else {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
-        
-        if let queryItems {
-            url.append(queryItems: queryItems)
+        components.queryItems = queryItems
+        guard let url = components.url
+        else {
+            return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
         
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 120)
