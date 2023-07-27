@@ -11,15 +11,20 @@
 		082D2E732A722D8300232466 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D2E722A722D8300232466 /* ContentView.swift */; };
 		082D2E752A722D8400232466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082D2E742A722D8400232466 /* Assets.xcassets */; };
 		082D2E792A722D8400232466 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 082D2E782A722D8400232466 /* Preview Assets.xcassets */; };
+		082D2E802A722DEB00232466 /* config-debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 082D2E7F2A722DEB00232466 /* config-debug.xcconfig */; };
+		082D2E822A722E0C00232466 /* config-release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 082D2E812A722E0C00232466 /* config-release.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		082D2E6D2A722D8300232466 /* DisplayImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		082D2E6D2A722D8300232466 /* Display Image (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Display Image (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		082D2E702A722D8300232466 /* DisplayImageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageApp.swift; sourceTree = "<group>"; };
 		082D2E722A722D8300232466 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		082D2E742A722D8400232466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		082D2E762A722D8400232466 /* DisplayImage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DisplayImage.entitlements; sourceTree = "<group>"; };
 		082D2E782A722D8400232466 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		082D2E7F2A722DEB00232466 /* config-debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "config-debug.xcconfig"; sourceTree = "<group>"; };
+		082D2E812A722E0C00232466 /* config-release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "config-release.xcconfig"; sourceTree = "<group>"; };
+		082D2E832A722F1D00232466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Configs/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +49,7 @@
 		082D2E6E2A722D8300232466 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				082D2E6D2A722D8300232466 /* DisplayImage.app */,
+				082D2E6D2A722D8300232466 /* Display Image (Debug).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,6 +57,8 @@
 		082D2E6F2A722D8300232466 /* DisplayImage */ = {
 			isa = PBXGroup;
 			children = (
+				082D2E832A722F1D00232466 /* Info.plist */,
+				082D2E842A722F3800232466 /* Configs */,
 				082D2E702A722D8300232466 /* DisplayImageApp.swift */,
 				082D2E722A722D8300232466 /* ContentView.swift */,
 				082D2E742A722D8400232466 /* Assets.xcassets */,
@@ -67,6 +74,15 @@
 				082D2E782A722D8400232466 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		082D2E842A722F3800232466 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				082D2E7F2A722DEB00232466 /* config-debug.xcconfig */,
+				082D2E812A722E0C00232466 /* config-release.xcconfig */,
+			);
+			path = Configs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,7 +102,7 @@
 			);
 			name = DisplayImage;
 			productName = DisplayImage;
-			productReference = 082D2E6D2A722D8300232466 /* DisplayImage.app */;
+			productReference = 082D2E6D2A722D8300232466 /* Display Image (Debug).app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				082D2E792A722D8400232466 /* Preview Assets.xcassets in Resources */,
+				082D2E802A722DEB00232466 /* config-debug.xcconfig in Resources */,
+				082D2E822A722E0C00232466 /* config-release.xcconfig in Resources */,
 				082D2E752A722D8400232466 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +276,7 @@
 		};
 		082D2E7D2A722D8400232466 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 082D2E7F2A722DEB00232466 /* config-debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -269,6 +288,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DisplayImage/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -285,7 +305,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Accenture.examCode.DisplayImage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -296,6 +316,7 @@
 		};
 		082D2E7E2A722D8400232466 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 082D2E812A722E0C00232466 /* config-release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -307,6 +328,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DisplayImage/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -323,7 +345,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Accenture.examCode.DisplayImage;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;

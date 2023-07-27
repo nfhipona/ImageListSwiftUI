@@ -1,0 +1,12 @@
+//
+//  config-release.xcconfig
+//  DisplayImage
+//
+//  Created by Neil Francis Hipona on 7/27/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_NAME = Display Image (Release)
+BASE_URL = https://api.pexels.com/v1
